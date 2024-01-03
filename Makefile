@@ -52,10 +52,10 @@ unleash:
 	podman-compose -f local/unleash-compose.yaml up
 
 infra:
-	podman-compose -f local/full-stack-compose.yaml up
+	docker-compose -f local/full-stack-compose.yaml up
 
 clean-all:
-	podman-compose -f local/full-stack-compose.yaml down
+	docker-compose -f local/full-stack-compose.yaml down
 
 test: seed-unleash
 	go test -v  ./... -coverprofile=c.out
@@ -71,3 +71,6 @@ dev: seed-unleash
 
 parse-services:
 	go run cmd/services/parseServices.go
+
+perf:
+	go run cmd/wsPerf/connections.go

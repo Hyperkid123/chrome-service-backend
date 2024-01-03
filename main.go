@@ -69,7 +69,7 @@ func main() {
 
 	// We might want to set up some event listeners at some point, but the pod will
 	// have to restart for these to take effect. We can't enable and disable websockets on the fly
-	if featureflags.IsEnabled("chrome-service.websockets.enabled") {
+	if true || featureflags.IsEnabled("chrome-service.websockets.enabled") {
 		// start the connection hub
 		go connectionhub.ConnectionHub.Run()
 		logrus.Infoln("Enabling WebSockets")
@@ -79,6 +79,7 @@ func main() {
 				AllowedOrigins: []string{
 					"wss://stage.foo.redhat.com:1337",
 					"wss://prod.foo.redhat.com:1337",
+					"*",
 				},
 			}))
 			subrouter.Route("/ws", routes.MakeWsRoute)

@@ -32,7 +32,7 @@ func main() {
 		"time": "2023-05-23T11:54:03.879689005+02:00",
 		"datacontenttype": "application/json",
 		"data":{
-			"broadcast": false,
+			"broadcast": true,
 			"organizations": ["11789772"],
 			"usernames": ["insights-qa"],
 			"payload": {
